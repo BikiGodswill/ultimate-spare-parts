@@ -1,0 +1,4 @@
+<!-- This file is a placeholder reminder. 
+     Place a placeholder.jpg in public/images/ for products with no image.
+     You can use: https://via.placeholder.com/400x400?text=No+Image
+-->
