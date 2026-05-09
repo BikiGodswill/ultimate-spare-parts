@@ -119,7 +119,10 @@ export default function ProductForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6 max-h-[90vh] overflow-y-auto"
+    >
       {/* Image Upload */}
       <div>
         <label className="block text-sm font-medium text-steel-700 dark:text-steel-300 mb-2">

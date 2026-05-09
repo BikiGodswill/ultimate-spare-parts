@@ -1,38 +1,46 @@
-'use client'
+"use client";
 /**
  * components/ui/Modal.js
  * Animated modal overlay component
  */
 
-import { useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { IoClose } from 'react-icons/io5'
+import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoClose } from "react-icons/io5";
 
-export default function Modal({ isOpen, onClose, title, children, size = 'md' }) {
+export default function Modal({
+  isOpen,
+  onClose,
+  title,
+  children,
+  size = "md",
+}) {
   // Close on Escape key
   useEffect(() => {
-    if (!isOpen) return
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handler)
-    document.body.style.overflow = 'hidden'
+    if (!isOpen) return;
+    const handler = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener('keydown', handler)
-      document.body.style.overflow = ''
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
 
   const sizes = {
-    sm: 'max-w-sm',
-    md: 'max-w-lg',
-    lg: 'max-w-2xl',
-    xl: 'max-w-4xl',
-    full: 'max-w-full mx-4',
-  }
+    sm: "max-w-sm",
+    md: "max-w-lg",
+    lg: "max-w-2xl",
+    xl: "max-w-4xl",
+    full: "max-w-full mx-4",
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 ">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -76,12 +84,10 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
             )}
 
             {/* Body */}
-            <div className="p-6">
-              {children}
-            </div>
+            <div className="p-6">{children}</div>
           </motion.div>
         </div>
       )}
     </AnimatePresence>
-  )
+  );
 }
