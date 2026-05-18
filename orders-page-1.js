@@ -13,7 +13,7 @@ import PageTransition from '@/components/animations/PageTransition'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import { useAuth } from '@/context/AuthContext'
-import { fetchUserOrders } from '@/models/Order'
+import { fetchUserOrders } from '@/models/OrderClient'
 import { formatPrice, formatDate, formatOrderId } from '@/utils/formatters'
 import { ORDER_STATUS_COLORS } from '@/lib/constants'
 
