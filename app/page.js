@@ -7,6 +7,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   HiArrowRight,
   HiShieldCheck,
@@ -24,6 +25,7 @@ import StaggerContainer, {
 } from "@/components/animations/StaggerContainer";
 import { getHomepageProducts } from "@/controllers/productController";
 import { CATEGORIES } from "@/lib/constants";
+import TrustBadges from "@/components/ui/TrustBadges";
 
 // ─── Icon map for categories ──────────────────────────────────
 const CATEGORY_ICONS = {
@@ -65,11 +67,11 @@ export default function HomePage() {
 
   return (
     <div className="overflow-hidden">
-      {/* ── HERO ─────────────────────────────────────────────── */}
+     
+      {/* ── HERO */}
       <section className="relative min-h-[88vh] flex items-center bg-steel-950 overflow-hidden">
         {/* Grid background */}
         <div className="absolute inset-0 bg-grid opacity-60" />
-
         {/* Gradient blobs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-600/8 rounded-full blur-3xl" />
@@ -92,29 +94,33 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-3xl">
+        <div className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
+             <Image
+              src="/bg.png"
+              alt="Background"
+              fill
+              className="absolute top-0 left-0 min-w-full h-full object-cover opacity-30 pointer-events-none "
+             />
+          <div className="max-w-3xl mx-auto">
             <FadeIn delay={0.1}>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/15 border border-brand-500/30 text-brand-400 text-sm font-heading font-semibold tracking-widest uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-heading font-semibold tracking-widest uppercase mb-6">
                 <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
                 Trusted by 50,000+ Mechanics
               </span>
             </FadeIn>
-
             <FadeIn delay={0.2}>
               <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-6">
                 Premium Auto
                 <span className="block">
                   <span className="gradient-text">Spare Parts</span>
                 </span>
-                <span className="text-steel-400 text-4xl sm:text-5xl lg:text-6xl">
+                <span className="text-white text-4xl sm:text-5xl lg:text-6xl">
                   Delivered Fast
                 </span>
               </h1>
             </FadeIn>
-
             <FadeIn delay={0.3}>
-              <p className="text-steel-400 text-lg sm:text-xl max-w-xl leading-relaxed mb-8">
+              <p className="text-white text-lg sm:text-xl max-w-xl leading-relaxed mb-8">
                 From engine overhauls to brake replacements — find OEM &amp;
                 aftermarket parts for every make and model. Quality guaranteed,
                 competitive pricing.
