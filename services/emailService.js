@@ -37,7 +37,7 @@ function getTransporter() {
   return _transporter
 }
 
-async function sendEmail({ to, subject, html, text }) {
+export async function sendEmail({ to, subject, html, text, replyTo }) {
   const transporter = getTransporter()
   if (!transporter) {
     console.log(`[EmailService] SKIP — would send to: ${to} | ${subject}`)
@@ -46,7 +46,11 @@ async function sendEmail({ to, subject, html, text }) {
   try {
     const info = await transporter.sendMail({
       from: process.env.EMAIL_FROM || `"Ultimate Spare Parts" <${process.env.EMAIL_USER}>`,
-      to, subject, html, text,
+      to,
+      subject,
+      html,
+      text,
+      replyTo,
     })
     console.log(`[EmailService] Sent to ${to}: ${info.messageId}`)
     return { success: true, messageId: info.messageId }
